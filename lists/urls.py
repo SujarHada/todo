@@ -3,11 +3,12 @@ from django.urls import path
 from lists import views
 
 urlpatterns = [
-    path('',views.index,name="home"),
-    path('add',views.add,name="add"),
-    path('delete/<int:id>',views.delete,name="delete"),
-    path('edit/<int:id>',views.edit,name="edit"),
-    path('edit_it/<int:id>',views.edit_it,name="edit_it")
+    path('',views.index.as_view(),name="home"),
+    path('todo/<int:id>/view', views.view.as_view(), name='view'),
+    path('todo/',views.add.as_view(),name="add"),
+    path('todo/<int:id>/delete',views.delete.as_view(),name="delete"),
+    path('todo/<int:id>/edit',views.edit.as_view(),name="edit"),
+    path('edit_it/<int:id>',views.edit_it.as_view(),name="edit_it")
 
     
 ]
