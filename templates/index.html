@@ -146,7 +146,7 @@ rel="stylesheet"
 </nav>
 <!-- Navbar -->
 
-<a class="btn btn-primary" href="/todo/<int:id>">Add </a>
+<a class="btn btn-primary" href="todo/">Add</a>
 
   
 <table class="table table-striped">
@@ -165,8 +165,8 @@ rel="stylesheet"
       <td>{{ t.ID }}</td>
       <td>{{ t.task }}</td>
       <td>{{ t.ddate }}</td>
-      <td> <a  class="btn btn-info" href="/edit/{{ t.ID }}">Edit</a>
-          <a  class="btn btn-dark" href="/delete/{{ t.ID }}">Delete</a>
+      <td> <a  class="btn btn-info" href="{% url 'edit' t.ID %}">Edit</a>
+          <a  class="btn btn-dark" href="{% url 'delete' t.ID %}">Delete</a>
       </td>
     </tr>
     {% endfor %}

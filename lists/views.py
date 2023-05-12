@@ -20,7 +20,7 @@ class add(View):
             task.task=tname
             task.ddate = ddate
             task.save()
-            return redirect("/")
+        return redirect("/")
         
 
 class delete(View):
@@ -33,37 +33,21 @@ class delete(View):
 
 class edit(View):
     def get(self ,request,id):
-        tasks = Task.objects.get(id=id)
-        
+        tasks = Task.objects.get(ID=id)
+        return render(request,'edit.html',{'task':tasks})
 
-    def post(request,id):
-        # task =Task.objects.get(ID=id)
-        if request.method=="POST":
-        #    tID = request.POST.get('ID')
-           tname = request.POST.get('tname')
-           ddate = request.POST.get('ddate')
-           task = Task ( task=tname , ddate = ddate)
-           task.save()
-           return render(request,'index.html')
-    
+    def post(self,request,id):
+       
+        task =Task.objects.get(ID=id)
+#       tID = request.POST.get('ID')
+        tname = request.POST.get('tname')
+        ddate = request.POST.get('ddate')
+        task.task=tname
+        task.ddate = ddate
+        task.save()
+        return redirect("/")
 
         return render(request,'edit.html',{'task':task})
-
-class edit_it(View):
-    def get(request,id):
-    
-        if request.method=="POST":
-            task =Task.objects.get(ID=id)
-            #    tID = request.POST.get('ID')
-            tname = request.POST.get('tname')
-            ddate = request.POST.get('ddate')
-            task.task=tname
-            task.ddate = ddate
-            task.save()
-            return redirect("/")
-        
-
-    # return render(request,'edit.html',{'task':task})
 
 class view(View):
     def get(self,request,id):

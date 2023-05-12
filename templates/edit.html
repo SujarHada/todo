@@ -25,17 +25,17 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
               
-            <form method="post" action="/edit_it/{{ task.ID }}">
+            <form method="post" action="">
               {% csrf_token %}
                 
                 <div class="form-outline mb-4">
-                    <input name="tname" type="text" id="taskTitle" class="form-control" value = '{{ task.task }}' '>
+                    <input name="tname" type="text" class="form-control" value = '{{ task.task }}' '>
                     <label class="form-label" for="taskTitle" style="margin-left: 0px;">Task Title</label>
                 </div>
   
                 
                 <div class="form-outline mb-4">
-                    <input name="ddate" type="date" id="taskDue" class="form-control" style="opacity: 0;" value = "{{ task.ddate|date:'Y-m-d' }}" >
+                    <input name="ddate" type="date"  class="form-control" style="opacity: 0;" value = "{{ task.ddate|date:'Y-m-d' }}" >
                     <label class="form-label" for="taskDue" style="margin-left: 0px;">Due Date</label>
                 </div>
   
