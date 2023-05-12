@@ -28,16 +28,18 @@
             
           <form method="post" action="">
             {% csrf_token %}
-              
+            {% if error_message %}
+            <p class="alert alert-danger">{{ error_message }}</p>
+            {% endif %}
               <div class="form-outline mb-4">
-                  <input name="tname" type="text" id="taskTitle" class="form-control" required>
+                  <input name="tname" type="text" id="taskTitle" class="form-control" >
                   <label class="form-label" for="taskTitle" style="margin-left: 0px;">Task Title</label>
               <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 61.6px;"></div><div class="form-notch-trailing"></div></div></div>
 
               
               <div class="form-outline mb-4">
                   <input name="ddate" type="date" id="taskDue" class="form-control" style="opacity: 0;">
-                  <label class="form-label" for="taskDue" style="margin-left: 0px;" required >Due Date</label>
+                  <label class="form-label" for="taskDue" style="margin-left: 0px;" >Due Date</label>
               <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 62.4px;"></div><div class="form-notch-trailing"></div></div></div>
 
               <!-- Submit button -->
